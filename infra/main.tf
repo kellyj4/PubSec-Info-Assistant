@@ -1,5 +1,21 @@
 locals {
-  tags            = { ProjectName = "Information Assistant", BuildNumber = var.buildNumber }
+  tags            = { 
+                     ProjectName = "Information Assistant", 
+                     BuildNumber = var.buildNumber, 
+                     AllUpdateCycle = "first", 
+                     BusinessHours = "mon-0000-sun2359", 
+                     BusinessOwner = "CloudOps",
+                     BusinessUnit = "psg",
+                     Classification = "official",
+                     CostCentre = "85650",
+                     Environment = "test",
+                     Expiration = "ongoing",
+                     Location = "a3",
+                     Project = "ai-ask-hr-poc",
+                     RequestedBy = "AI-Working-Group",
+                     SecurityDomain = "app",
+                     TechnicalOwner = "ml-clouds@ipaustralia.gov.au"
+                    }
   azure_roles     = jsondecode(file("${path.module}/azure_roles.json"))
   selected_roles  = ["CognitiveServicesOpenAIUser", "StorageBlobDataReader", "StorageBlobDataContributor", "SearchIndexDataReader", "SearchIndexDataContributor"]
 }
