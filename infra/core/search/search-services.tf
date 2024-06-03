@@ -5,9 +5,7 @@ resource "azurerm_search_service" "search" {
   resource_group_name = var.resourceGroupName
   sku                 = var.sku["name"]
   tags                = var.tags
-
-  local_authentication_enabled = false
-
+  
   identity {
     type = "SystemAssigned"
   }
